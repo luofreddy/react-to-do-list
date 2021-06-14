@@ -1,9 +1,10 @@
 import React from 'react'
 
 
-const Item = ( { id, note, date, time, delEven }) => {
+const Item = ( { id, note, date, time, delEven, submittingStatue }) => {
     
     const delItem = () =>{
+        submittingStatue.current = true;
         delEven(function(prev){
             return prev.filter(item => item.id !== id);
         })

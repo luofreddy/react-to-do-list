@@ -4,7 +4,7 @@ import { v4 } from 'uuid';
 
 
 
-const Edit = ( { setEven} ) => {
+const Edit = ( { setEven, submittingStatue } ) => {
 
     const [note, setNote] = useState("");
     const noteChange = (e) =>{
@@ -20,13 +20,14 @@ const Edit = ( { setEven} ) => {
     }
 
     const addEven = ( ) =>{
+        submittingStatue.current = true;
         setEven(function(prevData){
-            return [...prevData,{
+            return [{
                 id: v4(),
                 note,
                 date,
                 time,
-            }]
+            },...prevData]
         });
         
     }
